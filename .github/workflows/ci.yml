@@ -77,4 +77,6 @@ jobs:
 
       - name: Run frontend tests
         working-directory: ./front
-        run: npm test
+        env:
+          CHROME_BIN: google-chrome-stable
+        run: npm test -- --watch=false --browsers=ChromeHeadlessCI

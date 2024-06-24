@@ -78,6 +78,7 @@ jobs:
         run: npm test -- --watch=false --browsers=ChromeHeadlessCI
 
       - name: SonarQube Scan
+        working-directory: ./back
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn sonar:sonar -Dsonar.projectKey=my-project-key -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}

@@ -41,20 +41,10 @@ jobs:
         working-directory: ./back
         run: mvn verify
 
-      - name: Generate backend code coverage report
-        working-directory: ./back
-        run: mvn jacoco:report
-
-      - name: Upload backend coverage report
-        uses: actions/upload-artifact@v2
-        with:
-          name: backend-coverage-report
-          path: back/target/site/jacoco
-
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
 
       - name: Cache npm packages
         uses: actions/cache@v2
@@ -81,5 +71,9 @@ jobs:
         working-directory: ./back
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn sonar:sonar -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: mvn sonar:sonar \
+              -Dsonar.projectKey=fmmaesor_mod10 \
+              -Dsonar.organization=fmmaesor \
+              -Dsonar.host.url=https://sonarcloud.io \
+              -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
 

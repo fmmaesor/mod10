@@ -15,7 +15,7 @@
 	<description>L'application de joke par excellence !</description>
 	<properties>
 		<java.version>11</java.version>
-		<node.version>16.13.0</node.version>
+		<node.version>v16.13.1</node.version> <!-- Updated Node.js version -->
 		<npm.version>8.1.0</npm.version>
 	</properties>
 	<dependencies>

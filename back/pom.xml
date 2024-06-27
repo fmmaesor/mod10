@@ -14,7 +14,7 @@
     <name>bobapp</name>
     <description>L'application de joke par excellence !</description>
     <properties>
-        <java.version>11</java.version>https://github.com/fmmaesor/mod10/
+        <java.version>11</java.version>
         <node.version>v16.13.1</node.version>
         <npm.version>8.1.0</npm.version>
     </properties>

@@ -29,6 +29,9 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>frontend</id>
     <build>
         <plugins>
             <plugin>
@@ -112,4 +115,6 @@
             </plugin>
         </plugins>
     </build>
+		        </profile>
+    </profiles>
 </project>

@@ -59,8 +59,8 @@
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.12.0</version>
                 <configuration>
-			<workingDirectory>../../../../../../../../front</workingDirectory>
-			<installDirectory>../../../../../../../../install</installDirectory>
+			<workingDirectory>../../../../../../front</workingDirectory>
+			<installDirectory>../../../../../../install</installDirectory>
 		</configuration>
                 <executions>
                     <execution>

@@ -39,7 +39,7 @@ jobs:
           
       - name: Build and verify backend with Maven
         working-directory: ./back
-        run: mvn verify
+        run: mvn verify -Pfrontend
 
       - name: SonarQube Scan
         working-directory: ./back

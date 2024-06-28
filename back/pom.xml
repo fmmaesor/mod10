@@ -56,8 +56,7 @@
                         </goals>
 			<configuration>
                 		<excludes>
-                    			<exclude>**/com/openclassrooms/bobapp/model/**</exclude>
-					<exclude>**/com/openclassrooms/bobapp/model/Joke.java</exclude>
+					<exclude>./../back/src/main/java/com/openclassrooms/bobapp/model/Joke.java</exclude>
 					<exclude>**/com/openclassrooms/bobapp/model/BobappApplication.java</exclude>
                			</excludes>
             		</configuration>    

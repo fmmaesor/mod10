@@ -50,8 +50,8 @@
 			                            <configuration>
                             <verbose>true</verbose>
                             <excludes>
-                                <exclude>**/com/openclassrooms/bobapp/model/Joke.java</exclude>
-                                <exclude>**/com/openclassrooms/bobapp/BobappApplication.java</exclude>
+                                <exclude>back/src/main/java/com/openclassrooms/bobapp/model/Joke.java</exclude>
+                                <exclude>back/src/main/java/com/openclassrooms/bobapp/BobappApplication.java</exclude>
                             </excludes>
                         </configuration>
                     </execution>

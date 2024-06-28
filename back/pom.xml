@@ -47,13 +47,6 @@
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
-			                            <configuration>
-                            <verbose>true</verbose>
-                            <excludes>
-                                <exclude>back/src/main/java/com/openclassrooms/bobapp/model/Joke.java</exclude>
-                                <exclude>back/src/main/java/com/openclassrooms/bobapp/BobappApplication.java</exclude>
-                            </excludes>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>report</id>

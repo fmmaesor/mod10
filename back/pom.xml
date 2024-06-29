@@ -54,6 +54,12 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
+			<configuration>
+                            <excludes>
+                                <exclude>src/main/java/com/openclassrooms/bobapp/model/**/*.*</exclude>
+                                <exclude>src/main/java/com/openclassrooms/bobapp/BobappApplication.java</exclude>
+                            </excludes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>

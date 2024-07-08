@@ -48,6 +48,15 @@ jobs:
 
       - name: Copy frontend coverage report
         run: mkdir -p ./back/target/coverage && cp ./front/coverage/bobapp/lcov.info ./back/target/coverage/lcov.info
+
+      - name: Verify lcov.info exists
+        run: |
+          if [ ! -f ./back/target/coverage/lcov.info ]; then
+            echo "lcov.info not found!"
+            exit 1
+          else
+            echo "lcov.info found."
+          fi
           
       - name: Build and verify backend with Maven
         working-directory: ./back

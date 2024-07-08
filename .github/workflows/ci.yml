@@ -36,10 +36,17 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-
+
+      - name: Install frontend dependencies and run tests
+        working-directory: ./front
+        run: npm install && npm test -- --watch=false --code-coverage --browsers=ChromeHeadlessCI
+
+      - name: Copy frontend coverage report
+        run: cp ./front/coverage/bobapp/lcov.info ./back/coverage/lcov.info
           
       - name: Build and verify backend with Maven
         working-directory: ./back
-        run: mvn verify -Pfrontend
+        run: mvn verify
 
       - name: SonarQube Scan
         working-directory: ./back

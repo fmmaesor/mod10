@@ -48,15 +48,6 @@ jobs:
 
       - name: Copy frontend coverage report
         run: mkdir -p ./back/target/coverage && cp ./front/coverage/bobapp/lcov.info ./back/target/coverage/lcov.info
-
-      - name: Verify lcov.info exists
-        run: |
-          if [ ! -f ./back/target/coverage/lcov.info ]; then
-            echo "lcov.info not found!"
-            exit 1
-          else
-            echo "lcov.info found."
-          fi
           
       - name: Build and verify backend with Maven
         working-directory: ./back
@@ -66,6 +57,6 @@ jobs:
         working-directory: ./back
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn sonar:sonar -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.qualitygate.wait=true
+        run: mvn sonar:sonar -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  -Dsonar.javascript.lcov.reportPaths=target/coverage/lcov.info -Dsonar.qualitygate.wait=true
 
 

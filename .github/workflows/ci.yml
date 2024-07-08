@@ -42,7 +42,7 @@ jobs:
         run: npm install && npm test -- --watch=false --code-coverage --browsers=ChromeHeadlessCI
 
       - name: Copy frontend coverage report
-        run: cp ./front/coverage/bobapp/lcov.info ./back/coverage/lcov.info
+        run: mkdir -p ./back/target/coverage && cp ./front/coverage/bobapp/lcov.info ./back/target/coverage/lcov.info
           
       - name: Build and verify backend with Maven
         working-directory: ./back

@@ -47,8 +47,8 @@ jobs:
         run: npm install && npm test -- --watch=false --code-coverage --browsers=ChromeHeadlessCI
 
       - name: Copy frontend coverage report
-        run: mkdir -p ./back/coverage && cp ./front/coverage/bobapp/lcov.info ./back/coverage/lcov.info
-          
+        run: mkdir -p ./back/coverage && cp ./front/coverage/lcov.info ./back/coverage/lcov.info && ls -la ./back/coverage && cat ./back/coverage/lcov.info
+
       - name: Build and verify backend with Maven
         working-directory: ./back
         run: mvn verify
@@ -57,4 +57,4 @@ jobs:
         working-directory: ./back
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: if [ -f ./coverage/lcov.info ]; then echo "LCOV report found, running SonarQube scan..."; mvn sonar:sonar -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info -Dsonar.qualitygate.wait=true; else echo "LCOV report not found, skipping SonarQube scan."; fi
+        run: if [ -f ./coverage/lcov.info ]; then echo "LCOV report found, running SonarQube scan..."; mvn sonar:sonar -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.javascript.lcov.reportPaths=./coverage/lcov.info -Dsonar.projectBaseDir=./back -Dsonar.qualitygate.wait=true; else echo "LCOV report not found, skipping SonarQube scan."; fi

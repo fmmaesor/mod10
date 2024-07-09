@@ -53,12 +53,8 @@ jobs:
         working-directory: ./back
         run: mvn verify
 
-      - name: Set up SonarScanner
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: SonarQube Scan
+        working-directory: ./back
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
-      - name: SonarQube Scan
-        run: sonar-scanner -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.sources=./front/src -Dsonar.tests=./front/src -Dsonar.exclusions=**/node_modules/**,**/*.spec.ts,src/test/** -Dsonar.qualitygate.wait=true
-
-
+        run: mvn sonar:sonar -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }}  -Dsonar.javascript.lcov.reportPaths=target/coverage/lcov.info -Dsonar.qualitygate.wait=true

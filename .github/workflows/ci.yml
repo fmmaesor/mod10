@@ -59,6 +59,6 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: SonarQube Scan
-        run: sonar-scanner -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.sources=./front/src -Dsonar.tests=./front/src -Dsonar.exclusions=**/node_modules/**,**/*.spec.ts -Dsonar.qualitygate.wait=true
+        run: sonar-scanner -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.sources=./front/src -Dsonar.tests=./front/src -Dsonar.exclusions=**/node_modules/**,**/*.spec.ts,src/test/** -Dsonar.qualitygate.wait=true
 
 

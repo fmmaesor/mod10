@@ -53,6 +53,15 @@ jobs:
         working-directory: ./back
         run: mvn verify
 
+      - name: Verify lcov.info exists
+        run: |
+          if [ ! -f ./back/target/sonar/coverage/lcov.info ]; then
+            echo "lcov.info not found!"
+            exit 1
+          else
+            echo "lcov.info found."
+          fi
+
       - name: SonarQube Scan
         working-directory: ./back
         env:

@@ -55,12 +55,12 @@ jobs:
         working-directory: ./front
         run: npm install && npm test -- --watch=false --code-coverage --browsers=ChromeHeadlessCI
 
-      - name: Copy frontend coverage report
-        run: mkdir -p ./back/coverage && cp ./front/coverage/bobapp/lcov.info ./back/coverage/lcov.info 
+      - name: Build and verify backend with Maven
+        working-directory: ./back
+        run: mvn verify
         
       - name: SonarQube Scan
         working-directory: ./back
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bobapp-mod10 -Dsonar.projectName='bobapp-mod10' -Dsonar.javascript.lcov.reportPaths=/coverage/lcov.info
+        run:  mvn sonar:sonar -Dsonar.projectKey=fmmaesor_mod10 -Dsonar.organization=fmmaesor -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.qualitygate.wait=true

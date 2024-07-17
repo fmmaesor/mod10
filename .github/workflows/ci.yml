@@ -77,9 +77,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           projectBaseDir: .
+          workinDirectory: .
           args: >
             -Dsonar.projectKey=fmmaesor_mod10
             -Dsonar.organization=fmmaesor
-            -Dsonar.java.libraries=./back/target/*.jar
-            -Dsonar.java.test.libraries=./back/target/*.jar
             -X

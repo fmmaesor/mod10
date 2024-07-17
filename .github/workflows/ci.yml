@@ -78,4 +78,6 @@ jobs:
         with:
           projectBaseDir: .
           args: >
+            -Dsonar.projectKey=fmmaesor_mod10
+            -Dsonar.organization=fmmaesor
             -X

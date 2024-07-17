@@ -58,6 +58,15 @@ jobs:
       - name: Build and verify backend with Maven
         working-directory: ./back
         run: mvn verify
+
+      - name: Commit and push coverage reports
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add ./front/coverage/lcov.info
+          git add ./back/target/site/jacoco/jacoco.xml
+          git commit -m "Add coverage reports [skip ci]"
+          git push
         
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

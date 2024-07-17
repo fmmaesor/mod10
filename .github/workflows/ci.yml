@@ -81,9 +81,8 @@ jobs:
             -Dsonar.projectKey=fmmaesor_mod10
             -Dsonar.organization=fmmaesor
             -Dsonar.java.binaries=./back/target/classes
-            -Dsonar.jacoco.reportPaths=./back/coverage/jacoco.xml
+            -Dsonar.javascript.lcov.reportPaths=./front/coverage/bobapp(lcov.info
+            -Dsonar.jacoco.reportPaths=./back/target/site/jacoco/jacoco.xml
             -Dsonar.sources=./back/src/main
             -Dsonar.tests=./back/src/test
-            -Dsonar.test.inclusions="**/*Test.java,**/*Tests.java"
-            -Dsonar.exclusions="src/test/**"
             -Dsonar.qualitygate.wait=true

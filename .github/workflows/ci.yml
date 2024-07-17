@@ -82,8 +82,8 @@ jobs:
             -Dsonar.organization=fmmaesor
             -Dsonar.java.binaries=./back/target/classes
             -Dsonar.jacoco.reportPaths=./back/coverage/jacoco.xml
-            -Dsonar.sources=src/main
-            -Dsonar.tests=src/test
+            -Dsonar.sources=./back/src/main
+            -Dsonar.tests=./back/src/test
             -Dsonar.test.inclusions="**/*Test.java,**/*Tests.java"
             -Dsonar.exclusions="src/test/**"
             -Dsonar.qualitygate.wait=true

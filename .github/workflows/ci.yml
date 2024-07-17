@@ -80,6 +80,8 @@ jobs:
           args: >
             -Dsonar.projectKey=fmmaesor_mod10
             -Dsonar.organization=fmmaesor
+            -Dsonar.sources= ./front/src/app, ./back/src/main
+            -Dsonar.java.binaries=./back/target
             -Dsonar.coverage.jacoco.xmlReportPaths=./back/target/site/jacoco/jacoco.xml
             -Dsonar.javascript.lcov.reportPaths=./front/coverage/bobapp/lcov.info
             -Dsonar.coverage.exclusions=./back/src/main/java/com/openclassrooms/bobapp/model/**/*.*,./back/src/main/java/com/openclassrooms/bobapp/BobappApplication.java

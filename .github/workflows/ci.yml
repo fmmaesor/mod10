@@ -68,5 +68,4 @@ jobs:
           args: >
             -Dsonar.projectKey=fmmaesor_mod10
             -Dsonar.organization=fmmaesor
-            -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.qualitygate.wait=true

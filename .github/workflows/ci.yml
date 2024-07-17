@@ -60,6 +60,8 @@ jobs:
         run: mvn verify
 
       - name: Commit and push coverage reports
+        env:
+          PAT: ${{ secrets.PAT }}
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'

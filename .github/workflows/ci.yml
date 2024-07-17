@@ -68,7 +68,7 @@ jobs:
           git add -f ./front/coverage/bobapp/lcov.info
           git add -f ./back/target/site/jacoco/jacoco.xml
           git commit -m "Add coverage reports [skip ci]"
-          git push
+          git push https://x-access-token:${{ secrets.PAT }}@github.com/fmmaesor/mod10.git HEAD:main
         
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

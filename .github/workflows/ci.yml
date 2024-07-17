@@ -63,7 +63,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
-          git add ./front/coverage/lcov.info
+          git add ./front/coverage/bobapp/lcov.info
           git add ./back/target/site/jacoco/jacoco.xml
           git commit -m "Add coverage reports [skip ci]"
           git push
